@@ -1,5 +1,5 @@
 
-// -service 5420 -network 192.168.101.50 -daemon tcp:7500 a.b.c
+// -service 5420 -daemon tcp:7500 a.b.c
 /*
  * tibrvlisten - generic Rendezvous subscriber
  *
