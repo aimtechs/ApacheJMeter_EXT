@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2.20170807">
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="TIB Test Plan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -44,7 +44,7 @@
       <hashTree>
         <ConfigTestElement guiclass="kr.co.aim.jmeter.protocol.tibrv.config.gui.TibrvConfigGui" testclass="ConfigTestElement" testname="Tibrv Config Defaults" enabled="true">
           <stringProp name="TibrvSample.SERVICE">5420</stringProp>
-          <stringProp name="TibrvSample.NETWORK">192.168.101.50</stringProp>
+          <stringProp name="TibrvSample.NETWORK"></stringProp>
           <stringProp name="TibrvSample.DAEMON">tcp:7500</stringProp>
           <stringProp name="TibrvSample.SUBJECT">a.b.c</stringProp>
           <boolProp name="TibrvSampler.Local">false</boolProp>
@@ -55,7 +55,7 @@
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding"></stringProp>
-          <stringProp name="filename">D:\e-4.6-neon-jmeter-ws\ApacheJMeter_tibrv\src\test\resources\test.csv</stringProp>
+          <stringProp name="filename">D:\e-4.6-neon-jmeter-ws\ApacheJMeter_EXT\ApacheJMeter_tibrv\src\test\resources\test.csv</stringProp>
           <boolProp name="ignoreFirstLine">false</boolProp>
           <boolProp name="quotedData">false</boolProp>
           <boolProp name="recycle">true</boolProp>
@@ -80,7 +80,6 @@
           <stringProp name="TibrvSample.SUBJECT"></stringProp>
           <stringProp name="TibrvSample.DataField"></stringProp>
           <stringProp name="TibrvSample.Timeout"></stringProp>
-          <boolProp name="TibrvSampler.Local">false</boolProp>
           <stringProp name="TibrvSender.Message">&lt;trackin&gt;
   &lt;name&gt;MSG-01 :: ${FACTORY}&lt;/name&gt;
   &lt;lotname&gt;lot_${c}&lt;/lotname&gt;
@@ -125,7 +124,6 @@
           <stringProp name="TibrvSample.SUBJECT"></stringProp>
           <stringProp name="TibrvSample.DataField"></stringProp>
           <stringProp name="TibrvSample.Timeout"></stringProp>
-          <boolProp name="TibrvSampler.Local">false</boolProp>
           <stringProp name="TibrvSender.Message">&lt;trackin&gt;
   &lt;name&gt;MSG-02 :: ${FACTORY}&lt;/name&gt;
   &lt;lotname&gt;${lot}&lt;/lotname&gt;
@@ -142,7 +140,6 @@
           <stringProp name="TibrvSample.SUBJECT">a.b.c.d.e.f.g</stringProp>
           <stringProp name="TibrvSample.DataField"></stringProp>
           <stringProp name="TibrvSample.Timeout"></stringProp>
-          <boolProp name="TibrvSampler.Local">false</boolProp>
           <stringProp name="TibrvSender.Message">&lt;trackin&gt;
   &lt;name&gt;MSG-03 :: ${FACTORY}&lt;/name&gt;
   &lt;lotname&gt;${lot}&lt;/lotname&gt;
