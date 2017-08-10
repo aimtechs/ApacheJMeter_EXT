@@ -1,9 +1,9 @@
 
-# TIBRV TESTER ON [Apache JMeter](http://jmeter.apache.org/)
+# TIBRV Tester on [Apache JMeter](http://jmeter.apache.org/)
 
 ## 들어가며
 
-메시지 기반 어플리케이션 풀테스트시 혹은 데모 준비시, 메시지 생성 도구가 필요합니다. 단순 메시지 발생부터 시나리오 기반 메시지 생성까지 각양각색 입니다.
+메시지 기반 어플리케이션 풀테스트시 혹은 데모 준비시, 메시지 생성 도구가 필요합니다. 단순 메시지 생성 부터 시나리오 기반 메시지 생성까지 각양각색 입니다.
 
 TIBRV 기반 어플리케이션일 경우 TibOn을 이용할 수 있습니다. WEB 기반 어플리케이션은 [POSTMAN](https://www.getpostman.com/ ) or [Selenium](http://www.seleniumhq.org/)과 같은 도구를 이용하겠지요?
 
@@ -18,7 +18,7 @@ TIBRV 기반 어플리케이션일 경우 TibOn을 이용할 수 있습니다. W
 **(필수) java 8 이상**
 
 - [Apache JMeter DownLoad](http://jmeter.apache.org/download_jmeter.cgi)
-- [ApacheJMeter_tibrv-X.X.X.jar Download]() (설치된 TIBRV 버전에 맞는 파일을 다운로드)
+- [ApacheJMeter_tibrv-X.X.X.jar Download](https://github.com/aimtechs/ApacheJMeter_EXT/tree/master/ApacheJMeter_tibrv/deploy) (설치된 TIBRV 버전에 맞는 파일을 다운로드)
 - `JMETER_HOME/lib/ext`에 `ApacheJMeter_tibrv-X.X.X.jar` 복사 
 
 ## 실행 파일
@@ -30,12 +30,10 @@ TIBRV 기반 어플리케이션일 경우 TibOn을 이용할 수 있습니다. W
 
 `JMETER_HOME/bin` 하위 디렉토리(examples, report-template, templates)에 있는 jmx 확장자 파일을 로드하여 학습 테스트 수행
 
-
-
 ## ApacheJMeter_tibrv 샘플 테스트 가이드
 
-- [test.csv download](https://github.com/ApacheJMeter_EXT)
-- [Tib_TEST.jmx download](https://github.com/ApacheJMeter_EXT)
+- [test.csv download](https://github.com/aimtechs/ApacheJMeter_EXT/blob/master/ApacheJMeter_tibrv/src/test/resources/test.csv)
+- [Tib_TEST.jmx download](https://github.com/aimtechs/ApacheJMeter_EXT/blob/master/ApacheJMeter_tibrv/src/test/resources/Tib_TEST.jmx)
 - JMeter에서 다운로드 받은 `Tib_TEST.jmx` 파일 로드
 - `CSV Data Set Config` **fileName** 파일(다운로드 받은 `test.csv` 파일) 위치 변경
 - 테스트 확인을 위한 `tibrvlisten` 실행
