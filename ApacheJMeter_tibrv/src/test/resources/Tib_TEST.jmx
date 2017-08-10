@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2.20170807">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="TIB Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="FACTORY" elementType="Argument">
+            <stringProp name="Argument.name">FACTORY</stringProp>
+            <stringProp name="Argument.value">AIM.Systems</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="G_DATA_FIELD" elementType="Argument">
+            <stringProp name="Argument.name">G_DATA_FIELD</stringProp>
+            <stringProp name="Argument.value">xmlData</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="G_SEND_REQ_TIMEOUT" elementType="Argument">
+            <stringProp name="Argument.name">G_SEND_REQ_TIMEOUT</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TIB Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1502098810000</longProp>
+        <longProp name="ThreadGroup.end_time">1502098810000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="kr.co.aim.jmeter.protocol.tibrv.config.gui.TibrvConfigGui" testclass="ConfigTestElement" testname="Tibrv Config Defaults" enabled="true">
+          <stringProp name="TibrvSample.SERVICE">5420</stringProp>
+          <stringProp name="TibrvSample.NETWORK">192.168.101.50</stringProp>
+          <stringProp name="TibrvSample.DAEMON">tcp:7500</stringProp>
+          <stringProp name="TibrvSample.SUBJECT">a.b.c</stringProp>
+          <boolProp name="TibrvSampler.Local">false</boolProp>
+          <stringProp name="TibrvSample.DataField">${G_DATA_FIELD}</stringProp>
+          <stringProp name="TibrvSample.Timeout">${G_SEND_REQ_TIMEOUT}</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">D:\e-4.6-neon-jmeter-ws\ApacheJMeter_tibrv\src\test\resources\test.csv</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">lot,cst</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end">1000</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">c</stringProp>
+          <stringProp name="CounterConfig.format">000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <kr.co.aim.jmeter.protocol.tibrv.TibrvSender guiclass="kr.co.aim.jmeter.protocol.tibrv.control.gui.TibrvSenderGui" testclass="kr.co.aim.jmeter.protocol.tibrv.TibrvSender" testname="01 send" enabled="true">
+          <stringProp name="TibrvSample.SERVICE"></stringProp>
+          <stringProp name="TibrvSample.NETWORK"></stringProp>
+          <stringProp name="TibrvSample.DAEMON"></stringProp>
+          <stringProp name="TibrvSample.SUBJECT"></stringProp>
+          <stringProp name="TibrvSample.DataField"></stringProp>
+          <stringProp name="TibrvSample.Timeout"></stringProp>
+          <boolProp name="TibrvSampler.Local">false</boolProp>
+          <stringProp name="TibrvSender.Message">&lt;trackin&gt;
+  &lt;name&gt;MSG-01 :: ${FACTORY}&lt;/name&gt;
+  &lt;lotname&gt;lot_${c}&lt;/lotname&gt;
+  &lt;cstname&gt;cst_${c}&lt;/cstname&gt; 
+
+  &lt;lotname_r&gt;${lot}&lt;/lotname_r&gt;
+  &lt;cstname_r&gt;${cst}&lt;/cstname_r&gt; 
+&lt;/trackin&gt;</stringProp>
+          <boolProp name="TibrvSender.SendRequest">false</boolProp>
+        </kr.co.aim.jmeter.protocol.tibrv.TibrvSender>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">100</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="XPath Assertion" enabled="false">
+            <boolProp name="XPath.negate">false</boolProp>
+            <stringProp name="XPath.xpath">/data/response/text()=&apos;OK&apos;</stringProp>
+            <boolProp name="XPath.validate">false</boolProp>
+            <boolProp name="XPath.whitespace">false</boolProp>
+            <boolProp name="XPath.tolerant">false</boolProp>
+            <boolProp name="XPath.namespace">false</boolProp>
+            <boolProp name="XPath.report_errors">true</boolProp>
+            <boolProp name="XPath.quiet">false</boolProp>
+          </XPathAssertion>
+          <hashTree/>
+          <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="XPath Extractor" enabled="false">
+            <stringProp name="XPathExtractor.default"></stringProp>
+            <stringProp name="XPathExtractor.refname">DDD</stringProp>
+            <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+            <stringProp name="XPathExtractor.xpathQuery">/data/RD/text()</stringProp>
+            <boolProp name="XPathExtractor.validate">false</boolProp>
+            <boolProp name="XPathExtractor.tolerant">false</boolProp>
+            <boolProp name="XPathExtractor.namespace">false</boolProp>
+          </XPathExtractor>
+          <hashTree/>
+        </hashTree>
+        <kr.co.aim.jmeter.protocol.tibrv.TibrvSender guiclass="kr.co.aim.jmeter.protocol.tibrv.control.gui.TibrvSenderGui" testclass="kr.co.aim.jmeter.protocol.tibrv.TibrvSender" testname="02 send" enabled="true">
+          <stringProp name="TibrvSample.SERVICE"></stringProp>
+          <stringProp name="TibrvSample.NETWORK"></stringProp>
+          <stringProp name="TibrvSample.DAEMON"></stringProp>
+          <stringProp name="TibrvSample.SUBJECT"></stringProp>
+          <stringProp name="TibrvSample.DataField"></stringProp>
+          <stringProp name="TibrvSample.Timeout"></stringProp>
+          <boolProp name="TibrvSampler.Local">false</boolProp>
+          <stringProp name="TibrvSender.Message">&lt;trackin&gt;
+  &lt;name&gt;MSG-02 :: ${FACTORY}&lt;/name&gt;
+  &lt;lotname&gt;${lot}&lt;/lotname&gt;
+  &lt;cstname&gt;${cst}&lt;/cstname&gt; 
+  &lt;RRR&gt;${DDD}&lt;/RRR&gt;
+&lt;/trackin&gt;</stringProp>
+          <boolProp name="TibrvSender.SendRequest">false</boolProp>
+        </kr.co.aim.jmeter.protocol.tibrv.TibrvSender>
+        <hashTree/>
+        <kr.co.aim.jmeter.protocol.tibrv.TibrvSender guiclass="kr.co.aim.jmeter.protocol.tibrv.control.gui.TibrvSenderGui" testclass="kr.co.aim.jmeter.protocol.tibrv.TibrvSender" testname="03 send" enabled="true">
+          <stringProp name="TibrvSample.SERVICE"></stringProp>
+          <stringProp name="TibrvSample.NETWORK"></stringProp>
+          <stringProp name="TibrvSample.DAEMON"></stringProp>
+          <stringProp name="TibrvSample.SUBJECT">a.b.c.d.e.f.g</stringProp>
+          <stringProp name="TibrvSample.DataField"></stringProp>
+          <stringProp name="TibrvSample.Timeout"></stringProp>
+          <boolProp name="TibrvSampler.Local">false</boolProp>
+          <stringProp name="TibrvSender.Message">&lt;trackin&gt;
+  &lt;name&gt;MSG-03 :: ${FACTORY}&lt;/name&gt;
+  &lt;lotname&gt;${lot}&lt;/lotname&gt;
+  &lt;cstname&gt;${cst}&lt;/cstname&gt;
+&lt;/trackin&gt;</stringProp>
+          <boolProp name="TibrvSender.SendRequest">false</boolProp>
+        </kr.co.aim.jmeter.protocol.tibrv.TibrvSender>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

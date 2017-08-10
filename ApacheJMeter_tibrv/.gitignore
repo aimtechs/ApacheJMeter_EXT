@@ -1,0 +1,15 @@
+/target
+/.project
+/.classpath
+/.settings
+
+/bin/
+/build/
+/.gradle/
+*.iml
+
+/dependency-reduced-pom.xml
+
+*.jtl
+*.log
+/.apt_generated/
