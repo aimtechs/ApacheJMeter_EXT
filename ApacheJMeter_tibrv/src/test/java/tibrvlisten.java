@@ -1,5 +1,5 @@
 
-// -service 5420 -daemon tcp:7500 a.b.c
+// java tibrvlisten -service 5420 -daemon tcp:7500 a.b.c
 /*
  * tibrvlisten - generic Rendezvous subscriber
  *
@@ -119,17 +119,52 @@ public class tibrvlisten implements TibrvMsgCallback {
 									"<response>OK</response>" + 
 								"</data>";
 			}
+			
+			
+			
+			
 
 			reply.setReplySubject(msg.getReplySubject());
 			reply.update("xmlData", data);
 
-			transport.sendReply(reply, msg);
-			System.out.println(reply);
+			
+			// --------------------------------
+			sendReplyMsg(reply, msg);
+			
 
 		} catch (TibrvException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	
+	private void sendReplyMsg(TibrvMsg reply, TibrvMsg msg) {
+		new Thread(new Runnable() {
 
+			@Override
+			public void run() {
+				try {
+					// =======================================
+					sleep();
+					System.out.println(reply);
+					transport.sendReply(reply, msg);
+				} catch (TibrvException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}).start();;
+	}
+	
+	
+	void sleep() {
+		try {
+			Thread.sleep(800L);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	// print usage information and quit

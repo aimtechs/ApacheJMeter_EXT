@@ -31,13 +31,13 @@ public class TibrvSender extends TibrvSampler implements Interruptible {
 		result.setSuccessful(false);
 		result.setResponseCode("500");
 
-		try {
-			initTibrvRvdTransport();
-		} catch (TibrvException ex) {
-			log.error("fail initialize TibrvRvdTransport : ", ex);
-			result.setResponseMessage(ex.toString());
-			return result;
-		}
+//		try {
+//			initTibrvRvdTransport();
+//		} catch (TibrvException ex) {
+//			log.error("fail initialize TibrvRvdTransport : ", ex);
+//			result.setResponseMessage(ex.toString());
+//			return result;
+//		}
 
 		String data = getMessage();
 
@@ -46,6 +46,8 @@ public class TibrvSender extends TibrvSampler implements Interruptible {
 		// result sample start
 		result.sampleStart();
 		try {
+			
+			initTibrvRvdTransport();
 
 			TibrvMsg msg = new TibrvMsg();
 			msg.setSendSubject(getSubject());
@@ -83,6 +85,7 @@ public class TibrvSender extends TibrvSampler implements Interruptible {
 		} finally {
 			// result sample end
 			result.sampleEnd();
+			destroyTibrvRvdTransport();
 		}
 
 		return result;
