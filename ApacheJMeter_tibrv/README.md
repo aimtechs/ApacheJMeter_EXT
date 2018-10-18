@@ -52,7 +52,10 @@ TIBRV 기반 어플리케이션일 경우 TibOn을 이용할 수 있습니다. W
 - tibrv install (maven 의존성 해결)
 
     ```bash
-    mvn install:install-file -Dfile=D:\e-4.6-neon-jmeter-ws\ApacheJMeter_EXT\ApacheJMeter_tibrv\ext\tibrvj-8.4.0.jar -DgroupId=com.tibco -DartifactId=tibrvj -Dversion=8.4.0 -Dpackaging=jar -DgeneratePom=true
-
     mvn install:install-file -Dfile=D:\e-4.6-neon-jmeter-ws\ApacheJMeter_EXT\ApacheJMeter_tibrv\ext\tibrvj-8.3.0.jar -DgroupId=com.tibco -DartifactId=tibrvj -Dversion=8.3.0 -Dpackaging=jar -DgeneratePom=true
+    
+    mvn install:install-file -Dfile=D:\e-4.6-neon-jmeter-ws\ApacheJMeter_EXT\ApacheJMeter_tibrv\ext\tibrvj-8.4.0.jar -DgroupId=com.tibco -DartifactId=tibrvj -Dversion=8.4.0 -Dpackaging=jar -DgeneratePom=true
+    
+    mvn install:install-file -Dfile=D:\e-4.6-neon-jmeter-ws\ApacheJMeter_EXT\ApacheJMeter_tibrv\ext\tibrvj-8.4.5.jar -DgroupId=com.tibco -DartifactId=tibrvj -Dversion=8.4.5 -Dpackaging=jar -DgeneratePom=true
+
     ```
